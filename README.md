@@ -3,7 +3,7 @@
 > **WoW Perú Ecosystem** · WotLK 3.3.5a compatible · `Interface: 30300`  
 > Fork de [Abbreviated Status Text](https://www.curseforge.com/wow/addons/abbreviated-status-text) por RomanSpector
 
-[![License: Third-Party Notice](https://img.shields.io/badge/License-NOTICE.md-blue.svg)](NOTICE.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Reduce el texto de las barras de **Salud** y **Maná** a formatos abreviados legibles (ej: `12.4k`, `2.1M`) en lugar del número completo, maximizando la claridad en pantalla sin sacrificar información.
 
@@ -17,19 +17,21 @@ Reduce el texto de las barras de **Salud** y **Maná** a formatos abreviados leg
 - Compatible con WotLK 3.3.5a (Interface 30300).
 - Soporte multilenguaje: `enUS`, `ruRU`.
 
-## Instalación
+## 📥 Instalación
 
 1. Copia la carpeta `AbbreviatedStatus` a `Interface/AddOns/`.
 2. Activa el addon desde el selector de personaje.
 3. No requiere configuración adicional — funciona de inmediato.
 
-## Configuración
+## ⚙️ Configuración y Uso
 
-Accede a las opciones desde el menú de Interfaz de Blizzard → AddOns → Abbreviated Status.
+El addon se integra nativamente en el panel de opciones del cliente:
+- Presiona `Escape` → **Interfaz** → Pestaña **Accesorios (AddOns)** → **Abbreviated Status**.
+- Ajusta el umbral numérico de abreviación y los formatos de visualización deseados.
 
 ## Variables Guardadas
 
-- `AbbreviatedStatusDB` — Preferencias globales de formato.
+- `AbbreviatedStatusDB` — Preferencias globales y por personaje de formato.
 
 ## 📄 Licencia y Estatus Legal
 
