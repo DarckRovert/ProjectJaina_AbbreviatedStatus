@@ -29,7 +29,10 @@ end
 
 function AbbreviatedStatusOption_OnLoad(self)
     self.name = "AbbreviatedStatus";
-    self.version:SetText((ABBREVIATED_STATUS_OPTION_VERSION):format(version));
+    self.version = self.version or _G[self:GetName() .. "Version"];
+    if ( self.version ) then
+        self.version:SetText((ABBREVIATED_STATUS_OPTION_VERSION):format(version));
+    end
 
     local unitFrameReleaseFunc = function(this)
         local manabar = _G[this.manabar];
@@ -163,9 +166,12 @@ end
 -------  Check Button ---------
 -------------------------------
 function AbbreviatedStatusOptionCheckButton_InitializeWidget(self, optionName, array)
+    self.label = self.label or _G[self:GetName() .. "Label"];
     self.optionName = array;
     local tag = format("ABBREVIATED_STATUS_OPTION_%s", strupper(optionName));
-    self.label:SetText(_G[tag] or "Need string: "..tag);
+    if ( self.label ) then
+        self.label:SetText(_G[tag] or "Need string: "..tag);
+    end
     self.updateFunc = AbbreviatedStatusOptionCheckButton_Update;
 
     self:RegisterEvent("CVAR_UPDATE");
@@ -196,15 +202,27 @@ function AbbreviatedStatusOptionChekButton_SetStatus(self)
 end
 
 function AbbreviatedStatusOptionChekButton_SetEnable(self)
-    self:GetParent().xOffSet:Enable();
-    self:GetParent().yOffSet:Enable();
-    self.label:SetFontObject(GameFontNormal);
+    local parent = self:GetParent();
+    local xOff = parent.xOffSet or _G[parent:GetName() .. "XOFFSlider"];
+    local yOff = parent.yOffSet or _G[parent:GetName() .. "YOFFSlider"];
+    if xOff and xOff.Enable then xOff:Enable(); end
+    if yOff and yOff.Enable then yOff:Enable(); end
+    self.label = self.label or _G[self:GetName() .. "Label"];
+    if ( self.label ) then
+        self.label:SetFontObject(GameFontNormal);
+    end
 end
 
 function AbbreviatedStatusOptionChekButton_SetDisable(self)
-    self:GetParent().xOffSet:Disable();
-    self:GetParent().yOffSet:Disable();
-    self.label:SetFontObject(GameFontNormalMed3); --  GameFontHighlight
+    local parent = self:GetParent();
+    local xOff = parent.xOffSet or _G[parent:GetName() .. "XOFFSlider"];
+    local yOff = parent.yOffSet or _G[parent:GetName() .. "YOFFSlider"];
+    if xOff and xOff.Disable then xOff:Disable(); end
+    if yOff and yOff.Disable then yOff:Disable(); end
+    self.label = self.label or _G[self:GetName() .. "Label"];
+    if ( self.label ) then
+        self.label:SetFontObject(GameFontNormalMed3); --  GameFontHighlight
+    end
 end
 
 function AbbreviatedStatusOption_GetOptionFrame(self)
@@ -224,13 +242,20 @@ end
 ------- Slider ----------------
 -------------------------------
 function AbbreviatedStatusOptionSlider_InitializeWidget(self, optionName, minText, maxText, updateFunc)
+    self.label = self.label or _G[self:GetName() .. "Text"];
+    self.lowLable = self.lowLable or _G[self:GetName() .. "Low"];
+    self.maxLable = self.maxLable or _G[self:GetName() .. "High"];
+    self.value = self.value or _G[self:GetName() .. "Value"];
+
     self.optionName = optionName;
     local tag = format("ABBREVIATED_STATUS_OPTION_%s", strupper(optionName));
-    self.label:SetText(_G[tag] or "Need string: "..tag);
-    if ( minText ) then
+    if ( self.label ) then
+        self.label:SetText(_G[tag] or "Need string: "..tag);
+    end
+    if ( minText and self.lowLable ) then
         self.lowLable:SetText(minText);
     end
-    if ( maxText ) then
+    if ( maxText and self.maxLable ) then
         self.maxLable:SetText(maxText);
     end
 
@@ -239,15 +264,20 @@ function AbbreviatedStatusOptionSlider_InitializeWidget(self, optionName, minTex
 end
 
 function AbbreviatedStatusOptionSlider_Update(self)
+    self.value = self.value or _G[self:GetName() .. "Value"];
     local optionFrame = AbbreviatedStatusOption_GetOptionFrame(self);
     local currentValue = AbbreviatedStatusGetProfileOption(optionFrame.unit, self.prefix, optionFrame.type, self.optionName);
-    self.value:SetText(format("%.1f", currentValue));
+    if ( self.value ) then
+        self.value:SetText(format("%.1f", currentValue));
+    end
     self:SetValue(currentValue);
     AbbreviatedStatusOption_ApplySetting(AbbFrameGetParent(self, 3).GeneralFrame);
 end
 
 
 function AbbreviatedStatusOptionSlider_OnValueChanged(self, value)
+    self.value = self.value or _G[self:GetName() .. "Value"];
+    self.label = self.label or _G[self:GetName() .. "Text"];
     if ( self.generalOptions ) then
         if ( self.optionName == "prefix" ) then
             value = value == 2 and 3 or value;
@@ -256,14 +286,20 @@ function AbbreviatedStatusOptionSlider_OnValueChanged(self, value)
             assert((#NUMBER_ABBREVIATION_DATA - index) > 0, "AbbreviatedStatus: NUMBER_ABBREVIATION_DATA table is corrupted, missing elements");
             local currentValue = NUMBER_ABBREVIATION_DATA[#NUMBER_ABBREVIATION_DATA - index].breakpoint;
             self:SetValue(value);
-            self.label:SetFontObject(value==1 and GameFontNormalLeftGrey or GameFontHighlightLeft);
-            self.label:SetText( string.format(ABBREVIATED_STATUS_OPTION_PREFIX, AbbreviateNumbers(currentValue)) );
+            if ( self.label ) then
+                self.label:SetFontObject(value==1 and GameFontNormalLeftGrey or GameFontHighlightLeft);
+                self.label:SetText( string.format(ABBREVIATED_STATUS_OPTION_PREFIX, AbbreviateNumbers(currentValue)) );
+            end
         end
-        self.value:SetText(format("%.f", value));
+        if ( self.value ) then
+            self.value:SetText(format("%.f", value));
+        end
         AbbreviatedStatusOption_SetGeneralValue(self.optionName, value);
     else
         local optionFrame = AbbreviatedStatusOption_GetOptionFrame(self);
-        self.value:SetText(format("%.1f", value));
+        if ( self.value ) then
+            self.value:SetText(format("%.1f", value));
+        end
         AbbreviatedStatusSetProfileOption(optionFrame.unit, self.prefix, optionFrame.type, self.optionName, value);
         AbbreviatedStatusOption_ApplySetting(AbbFrameGetParent(self, 3).GeneralFrame);
     end

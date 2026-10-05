@@ -73,6 +73,7 @@ local function Abbreviated_UpdateTextString(self)
         self.TextPercent = CreateFrame("Frame", "$parentPecent", self, "TextPercentBarTemplate");
         self.TextPercent:SetFrameLevel(self:GetFrameLevel() + 1);
         self.TextPercent:SetAllPoints();
+        self.TextPercent.text = _G[self.TextPercent:GetName() .. "Text"];
         precentText = self.TextPercent.text;
     end
 

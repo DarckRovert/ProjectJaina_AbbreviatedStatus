@@ -20,24 +20,30 @@
         </FontString>
       </Layer>
     </Layers>
+    <Scripts>
+      <OnLoad>
+        self.text = _G[self:GetName() .. "Text"];
+      </OnLoad>
+    </Scripts>
   </Frame>
   <!-- SEPARATOR -->
   <Texture name="SeparatorTextureOptionTemplate" virtual="true">
     <Anchors>
-      <Anchor point="TOPLEFT" relativePoint="TOPLEFT" x="10" y="-39" />
-      <Anchor point="BOTTOMRIGHT" relativePoint="TOPRIGHT" x="-10" y="-40" />
+      <Anchor point="TOPLEFT">
+        <Offset>
+          <AbsDimension x="10" y="-39" />
+        </Offset>
+      </Anchor>
+      <Anchor point="BOTTOMRIGHT" relativePoint="TOPRIGHT">
+        <Offset>
+          <AbsDimension x="-10" y="-40" />
+        </Offset>
+      </Anchor>
     </Anchors>
-    <Layers>
-      <Layer>
-        <Texture>
-          <Color r="1" g="1" b="1" a="1" />
-        </Texture>
-      </Layer>
-    </Layers>
-    <Color r="0.25" g="0.25" b="0.25" />
+    <Color r="0.25" g="0.25" b="0.25" a="1" />
   </Texture>
   <!-- CHECKBUTTON -->
-  <CheckButton name="AbbreviatedStatusOptionCheckButtonTemplate" motionScriptsWhileDisabled="true" virtual="true">
+  <CheckButton name="AbbreviatedStatusOptionCheckButtonTemplate" virtual="true">
     <Size>
       <AbsDimension x="26" y="26" />
     </Size>
@@ -58,6 +64,9 @@
       </Layer>
     </Layers>
     <Scripts>
+      <OnLoad>
+        self.label = _G[self:GetName() .. "Label"];
+      </OnLoad>
       <OnClick function="AbbreviatedStatusOptionCheckButton_OnClick" />
       <OnEvent function="AbbreviatedStatusOptionCheckButton_OnEvent" />
     </Scripts>
@@ -82,17 +91,23 @@
       </Layer>
     </Layers>
     <Scripts>
+      <OnLoad>
+        self.label = _G[self:GetName() .. "Text"];
+        self.lowLable = _G[self:GetName() .. "Low"];
+        self.maxLable = _G[self:GetName() .. "High"];
+        self.value = _G[self:GetName() .. "Value"];
+      </OnLoad>
       <OnEnable>
-        self.value:SetFontObject(GameFontHighlightLeft);
-        self.label:SetFontObject(GameFontHighlightLeft);
-        self.lowLable:SetFontObject(GameFontHighlightLeft);
-        self.maxLable:SetFontObject(GameFontHighlightLeft);
+        if self.value then self.value:SetFontObject(GameFontHighlightLeft); end
+        if self.label then self.label:SetFontObject(GameFontHighlightLeft); end
+        if self.lowLable then self.lowLable:SetFontObject(GameFontHighlightLeft); end
+        if self.maxLable then self.maxLable:SetFontObject(GameFontHighlightLeft); end
       </OnEnable>
       <OnDisable>
-        self.value:SetFontObject(GameFontDisableLeft);
-        self.label:SetFontObject(GameFontDisableLeft);
-        self.lowLable:SetFontObject(GameFontDisableLeft);
-        self.maxLable:SetFontObject(GameFontDisableLeft);
+        if self.value then self.value:SetFontObject(GameFontDisableLeft); end
+        if self.label then self.label:SetFontObject(GameFontDisableLeft); end
+        if self.lowLable then self.lowLable:SetFontObject(GameFontDisableLeft); end
+        if self.maxLable then self.maxLable:SetFontObject(GameFontDisableLeft); end
       </OnDisable>
       <OnValueChanged function="AbbreviatedStatusOptionSlider_OnValueChanged" />
     </Scripts>
@@ -119,6 +134,12 @@
         </FontString>
       </Layer>
     </Layers>
+    <Scripts>
+      <OnLoad>
+        self.separator = _G[self:GetName() .. "Separator"];
+        self.text = _G[self:GetName() .. "Text"];
+      </OnLoad>
+    </Scripts>
   </Frame>
   <!-- SETFRAME OPTION -->
   <Frame name="AbbreviatedStatusOptionFrameTemplate" virtual="true">
@@ -133,11 +154,12 @@
           <Anchor point="TOPLEFT" relativeTo="$parentCheck" relativePoint="BOTTOMLEFT" x="10" y="-15" />
         </Anchors>
         <Scripts>
-          <OnLoad inherit="prepend">
+          <OnLoad>
             self.label = _G[self:GetName().."Text"];
-            self.lowLable = _G[self:GetName().."Low"]
-            self.maxLable = _G[self:GetName().."High"]
-            AbbreviatedStatusOptionSlider_InitializeWidget(self, "xOff", ABBREVIATED_STATUS_OPTION_LEFT, ABBREVIATED_STATUS_OPTION_RIGHT)
+            self.lowLable = _G[self:GetName().."Low"];
+            self.maxLable = _G[self:GetName().."High"];
+            self.value = _G[self:GetName().."Value"];
+            AbbreviatedStatusOptionSlider_InitializeWidget(self, "xOff", ABBREVIATED_STATUS_OPTION_LEFT, ABBREVIATED_STATUS_OPTION_RIGHT);
           </OnLoad>
         </Scripts>
       </Slider>
@@ -146,15 +168,23 @@
           <Anchor point="TOPLEFT" relativeTo="$parentXOFFSlider" relativePoint="BOTTOMLEFT" x="0" y="-45" />
         </Anchors>
         <Scripts>
-          <OnLoad inherit="prepend">
+          <OnLoad>
             self.label = _G[self:GetName().."Text"];
-            self.lowLable = _G[self:GetName().."Low"]
-            self.maxLable = _G[self:GetName().."High"]
-            AbbreviatedStatusOptionSlider_InitializeWidget(self, "yOff", ABBREVIATED_STATUS_OPTION_DOWN, ABBREVIATED_STATUS_OPTION_UP)
+            self.lowLable = _G[self:GetName().."Low"];
+            self.maxLable = _G[self:GetName().."High"];
+            self.value = _G[self:GetName().."Value"];
+            AbbreviatedStatusOptionSlider_InitializeWidget(self, "yOff", ABBREVIATED_STATUS_OPTION_DOWN, ABBREVIATED_STATUS_OPTION_UP);
           </OnLoad>
         </Scripts>
       </Slider>
     </Frames>
+    <Scripts>
+      <OnLoad>
+        self.check = _G[self:GetName() .. "Check"];
+        self.xOffSet = _G[self:GetName() .. "XOFFSlider"];
+        self.yOffSet = _G[self:GetName() .. "YOFFSlider"];
+      </OnLoad>
+    </Scripts>
   </Frame>
   <!-- SETFRAME TYPE OPTION -->
   <Frame name="AbbreviatedStatusOptionTemplate" virtual="true">
@@ -180,9 +210,12 @@
         </Anchors>
         <Scripts>
           <OnLoad>
-            self.check.prefix = "healthbar";
-            self.yOffSet.prefix = "healthbar";
-            self.xOffSet.prefix = "healthbar";
+            self.check = self.check or _G[self:GetName() .. "Check"];
+            self.xOffSet = self.xOffSet or _G[self:GetName() .. "XOFFSlider"];
+            self.yOffSet = self.yOffSet or _G[self:GetName() .. "YOFFSlider"];
+            if self.check then self.check.prefix = "healthbar"; end
+            if self.yOffSet then self.yOffSet.prefix = "healthbar"; end
+            if self.xOffSet then self.xOffSet.prefix = "healthbar"; end
           </OnLoad>
         </Scripts>
       </Frame>
@@ -194,9 +227,12 @@
         </Anchors>
         <Scripts>
           <OnLoad>
-            self.check.prefix = "manabar";
-            self.yOffSet.prefix = "manabar";
-            self.xOffSet.prefix = "manabar";
+            self.check = self.check or _G[self:GetName() .. "Check"];
+            self.xOffSet = self.xOffSet or _G[self:GetName() .. "XOFFSlider"];
+            self.yOffSet = self.yOffSet or _G[self:GetName() .. "YOFFSlider"];
+            if self.check then self.check.prefix = "manabar"; end
+            if self.yOffSet then self.yOffSet.prefix = "manabar"; end
+            if self.xOffSet then self.xOffSet.prefix = "manabar"; end
           </OnLoad>
         </Scripts>
       </Frame>
@@ -226,10 +262,20 @@
         </Anchors>
         <Scripts>
           <OnLoad>
-            self.type = "status"
-            self.title.text:SetText(ABBREVIATED_STATUS_OPTION_STATUS)
-            AbbreviatedStatusOptionCheckButton_InitializeWidget(self.healthOptions.check, "health", "enable")
-            AbbreviatedStatusOptionCheckButton_InitializeWidget(self.manaOptions.check, "mana", "enable")
+            self.title = self.title or _G[self:GetName() .. "Title"];
+            if self.title and not self.title.text then
+              self.title.text = _G[self.title:GetName() .. "Text"];
+            end
+            self.healthOptions = self.healthOptions or _G[self:GetName() .. "HealthOptions"];
+            self.manaOptions = self.manaOptions or _G[self:GetName() .. "ManaOptions"];
+            self.type = "status";
+            if self.title and self.title.text then
+              self.title.text:SetText(ABBREVIATED_STATUS_OPTION_STATUS);
+            end
+            local hCheck = self.healthOptions and (self.healthOptions.check or _G[self.healthOptions:GetName() .. "Check"]);
+            local mCheck = self.manaOptions and (self.manaOptions.check or _G[self.manaOptions:GetName() .. "Check"]);
+            if hCheck then AbbreviatedStatusOptionCheckButton_InitializeWidget(hCheck, "health", "enable"); end
+            if mCheck then AbbreviatedStatusOptionCheckButton_InitializeWidget(mCheck, "mana", "enable"); end
           </OnLoad>
         </Scripts>
       </Frame>
@@ -240,10 +286,20 @@
         </Anchors>
         <Scripts>
           <OnLoad>
-            self.type = "percent"
-            self.title.text:SetText(ABBREVIATED_STATUS_OPTION_PERCENT)
-            AbbreviatedStatusOptionCheckButton_InitializeWidget(self.healthOptions.check, "health", "enable")
-            AbbreviatedStatusOptionCheckButton_InitializeWidget(self.manaOptions.check, "mana", "enable")
+            self.title = self.title or _G[self:GetName() .. "Title"];
+            if self.title and not self.title.text then
+              self.title.text = _G[self.title:GetName() .. "Text"];
+            end
+            self.healthOptions = self.healthOptions or _G[self:GetName() .. "HealthOptions"];
+            self.manaOptions = self.manaOptions or _G[self:GetName() .. "ManaOptions"];
+            self.type = "percent";
+            if self.title and self.title.text then
+              self.title.text:SetText(ABBREVIATED_STATUS_OPTION_PERCENT);
+            end
+            local hCheck = self.healthOptions and (self.healthOptions.check or _G[self.healthOptions:GetName() .. "Check"]);
+            local mCheck = self.manaOptions and (self.manaOptions.check or _G[self.manaOptions:GetName() .. "Check"]);
+            if hCheck then AbbreviatedStatusOptionCheckButton_InitializeWidget(hCheck, "health", "enable"); end
+            if mCheck then AbbreviatedStatusOptionCheckButton_InitializeWidget(mCheck, "mana", "enable"); end
           </OnLoad>
         </Scripts>
       </Frame>
@@ -280,14 +336,15 @@
           <Anchor point="TOPLEFT" x="60" y="-100" />
         </Anchors>
         <Scripts>
-          <OnLoad inherit="prepend">
+          <OnLoad>
             self.label = _G[self:GetName().."Text"];
             self.lowLable = _G[self:GetName().."Low"];
             self.maxLable = _G[self:GetName().."High"];
+            self.value = _G[self:GetName().."Value"];
             self.generalOptions = true;
             AbbreviatedStatusOptionSlider_InitializeWidget(self, "remainder", nil, nil, function(self)
             local currentValue = AbbreviatedStatusOption_GetGeneralValue(self.optionName);
-            self.value:SetText(format("%.f", currentValue));
+            if self.value then self.value:SetText(format("%.f", currentValue)); end
             self:SetValue(currentValue);
             AbbreviatedStatusOption_UpdateUnits(self:GetParent());
             end)
@@ -296,11 +353,11 @@
       </Slider>
       <Slider name="$parentPrefix" parentKey="prefix" inherits="AbbreviatedStatusOptionSliderTemplate" minValue="1" maxValue="10" valueStep="1">
         <Anchors>
-          <Anchor point="TOP" relativeTo="$parentRemainder" parentKey="prefix" relativePoint="BOTTOM" x="0" y="-60" />
+          <Anchor point="TOP" relativeTo="$parentRemainder" relativePoint="BOTTOM" x="0" y="-60" />
         </Anchors>
         <Layers>
           <Layer level="ARTWORK">
-            <FontString name="$parentEnable" inherits="GameFontHighlightSmall" text="ABBREVIATED_LOCK_STATUS" parentKey="enable">
+            <FontString name="$parentEnable" inherits="GameFontHighlightSmall" text="ABBREVIATED_LOCK_STATUS">
               <Anchors>
                 <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" />
               </Anchors>
@@ -308,17 +365,20 @@
           </Layer>
         </Layers>
         <Scripts>
-          <OnLoad inherit="prepend">
+          <OnLoad>
             self.label = _G[self:GetName().."Text"];
             self.lowLable = _G[self:GetName().."Low"];
             self.maxLable = _G[self:GetName().."High"];
-            self.lowLable:ClearAllPoints();
-            self.lowLable:SetPoint("TOPLEFT", self, "BOTTOMLEFT", 40, 0);
-            self.value:Hide()
+            self.value = _G[self:GetName().."Value"];
+            if self.lowLable then
+              self.lowLable:ClearAllPoints();
+              self.lowLable:SetPoint("TOPLEFT", self, "BOTTOMLEFT", 40, 0);
+            end
+            if self.value then self.value:Hide(); end
             self.generalOptions = true;
             AbbreviatedStatusOptionSlider_InitializeWidget(self, "prefix", nil, nil, function(self)
             local currentValue = AbbreviatedStatusOption_GetGeneralValue(self.optionName) or 1;
-            self.value:SetText(format("%.f", currentValue));
+            if self.value then self.value:SetText(format("%.f", currentValue)); end
             self:SetValue(currentValue);
             end)
           </OnLoad>
