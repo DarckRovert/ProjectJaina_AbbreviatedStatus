@@ -391,44 +391,42 @@ function AbbreviatedStatusOption_ApplySetting(GeneralFrame)
 end
 
 function AbbreviatedStatus_GetCVarBool(unit, barType)
-    if ( not PROFILE) then
-        return;
+    if not PROFILE or not PROFILE[1] or not unit or not barType then
+        return false, false;
     end
     local options = PROFILE[1][unit];
-    local cvarStatus, cvarPecernt;
-    for key,value in pairs(options) do
-        if ( key == barType ) then
-            cvarStatus= value.status.enable;
-            cvarPecernt = value.percent.enable;
-            break;
-        end
+    if not options or type(options) ~= "table" then
+        return false, false;
     end
-    return cvarStatus, cvarPecernt;
+    local target = options[barType];
+    if target and target.status and target.percent then
+        return target.status.enable, target.percent.enable;
+    end
+    return false, false;
 end
 
 function AbbreviatedStatusOption_GetPoint(unit, barType, status)
-    if ( not PROFILE) then
+    if not PROFILE or not PROFILE[1] or not unit or not barType or not status then
         return 0, 0;
     end
-
-    local xOff, yOff;
     local options = PROFILE[1][unit];
-
-    for key, value in pairs(options) do
-        if ( key == barType ) then
-            xOff = value[status].xOff;
-            yOff = value[status].yOff;
-            break;
-        end
+    if not options or type(options) ~= "table" then
+        return 0, 0;
     end
-    return xOff or 0, yOff or 0;
+    local target = options[barType];
+    if target and target[status] then
+        return target[status].xOff or 0, target[status].yOff or 0;
+    end
+    return 0, 0;
 end
 
 function AbbreviatedStatusOption_GetStatusBarType(bar)
     if not ( bar and bar.GetName ) then
-        return;
+        return "manabar";
     end
-    local barType = bar:GetName():match("HealthBar") or "manabar";
+    local name = bar:GetName();
+    if not name then return "manabar"; end
+    local barType = name:match("HealthBar") or "manabar";
     return strlower(barType);
 end
 
@@ -441,6 +439,7 @@ function AbbreviatedStatusOption_SetShown(textFrame, enable)
 end
 
 function AbbreviatedStatusOption_SetPosition(text, point, relativeTo, barType, status, unit)
+    if not text or not text.ClearAllPoints or not text.SetPoint then return; end
     local xOff, yOff = AbbreviatedStatusOption_GetPoint(unit, barType, status);
     text:ClearAllPoints();
     text:SetPoint(point, relativeTo, point, point == "CENTER" and 0 or xOff, yOff);

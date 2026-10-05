@@ -23,15 +23,19 @@ NUMBER_ABBREVIATION_DATA = {
 };
 
 function AbbreviatedStatusNumbers(value)
+    if not value or type(value) ~= "number" then return tostring(value or "0"); end
     local remainder = AbbreviatedStatusOption_GetGeneralValue("remainder");
     local prefix = AbbreviatedStatusOption_GetGeneralValue("prefix");
-    local index = prefix >= 3 and prefix - 3 or 0;
+    local index = (prefix and prefix >= 3) and (prefix - 3) or 0;
     for i, data in ipairs(NUMBER_ABBREVIATION_DATA) do
         if ( value >= data.breakpoint ) then
-            local finalValue;
-            local currentValue = NUMBER_ABBREVIATION_DATA[#NUMBER_ABBREVIATION_DATA - index].breakpoint;
-            finalValue = string.format("%."..remainder.."f", (value / data.significandDivisor) / data.fractionDivisor);
-            return ( prefix > 1 and currentValue <= data.breakpoint ) and finalValue .. data.abbreviation or finalValue;
+            local clampedIndex = math.max(1, math.min(#NUMBER_ABBREVIATION_DATA, #NUMBER_ABBREVIATION_DATA - index));
+            local currentEntry = NUMBER_ABBREVIATION_DATA[clampedIndex];
+            local currentValue = currentEntry and currentEntry.breakpoint or data.breakpoint;
+            local fmt = "%." .. (tonumber(remainder) or 1) .. "f";
+            local finalValue = string.format(fmt, (value / data.significandDivisor) / data.fractionDivisor);
+            local abbr = data.abbreviation or "";
+            return ( prefix > 1 and currentValue <= data.breakpoint ) and (finalValue .. abbr) or finalValue;
         end
     end
     return tostring(value)
@@ -49,42 +53,44 @@ function AbbreviateNumbers(value)
 end
 
 local function Abbreviated_UpdateTextString(self)
-    if not ( self.unit and AbbreviatedStatusGetUnitOption(string.gsub(self.unit, "[%d]", ""))) then
-        return;
-    end
-
-    local _, valueMax = self:GetMinMaxValues();
+    if not self or not self.unit then return; end
     local unit = self.unit;
     local unitType = string.gsub(unit, "[%d]", "");
-    local value = self:GetValue();
-    local statusText = self.TextString;
-    local stringText = AbbreviatedStatusNumbers(value);
-    local percText = string.format("%.f%%", value/valueMax*100);
-    local precentText = self.TextPercent and self.TextPercent.text;
-
-    local barType = AbbreviatedStatusOption_GetStatusBarType(self);
-    local cvarStatus, cvarPecernt = AbbreviatedStatus_GetCVarBool(unitType, barType);
-
-    if ( not statusText ) then
+    local unitOption = AbbreviatedStatusGetUnitOption(unitType);
+    if not unitOption then
         return;
     end
 
-    if ( not precentText ) then
-        self.TextPercent = CreateFrame("Frame", "$parentPecent", self, "TextPercentBarTemplate");
+    local statusText = self.TextString;
+    if not statusText then return; end
+
+    local value = self:GetValue() or 0;
+    local _, valueMax = self:GetMinMaxValues();
+    valueMax = valueMax or 0;
+
+    local stringText = AbbreviatedStatusNumbers(value);
+    local percText = (valueMax > 0) and string.format("%.f%%", (value / valueMax) * 100) or "0%";
+
+    local barType = AbbreviatedStatusOption_GetStatusBarType(self);
+    if not barType then return; end
+    local cvarStatus, cvarPecernt = AbbreviatedStatus_GetCVarBool(unitType, barType);
+
+    if ( not self.TextPercent ) then
+        self.TextPercent = CreateFrame("Frame", "$parentPercent", self, "TextPercentBarTemplate");
         self.TextPercent:SetFrameLevel(self:GetFrameLevel() + 1);
         self.TextPercent:SetAllPoints();
         self.TextPercent.text = _G[self.TextPercent:GetName() .. "Text"];
-        precentText = self.TextPercent.text;
     end
+    local precentText = self.TextPercent and self.TextPercent.text;
 
-    if ( cvarPecernt and value > 0 ) then
+    if ( cvarPecernt and value > 0 and valueMax > 0 and precentText ) then
         precentText:SetText(percText);
         if ( not UnitIsConnected(unit) or UnitIsDeadOrGhost(unit) ) then
             precentText:Hide();
         else
             precentText:Show();
         end
-    else
+    elseif precentText then
         precentText:Hide();
     end
 
@@ -101,18 +107,15 @@ local function Abbreviated_UpdateTextString(self)
         statusText:Hide();
     end
 
-
-    if ( cvarPecernt and cvarStatus ) then
+    if ( cvarPecernt and cvarStatus and precentText and precentText:IsShown() ) then
         AbbreviatedStatusOption_SetPosition(precentText, "LEFT", self, barType, "percent", unitType);
         AbbreviatedStatusOption_SetPosition(statusText, "RIGHT", self, barType, "status", unitType);
-        if ( precentText and not precentText:IsShown() ) then
-            AbbreviatedStatusOption_SetPosition(statusText, "CENTER", self, barType, "status", unitType);
-        end
     else
-        AbbreviatedStatusOption_SetPosition(precentText, "CENTER", self, barType, "percent", unitType);
+        if precentText then
+            AbbreviatedStatusOption_SetPosition(precentText, "CENTER", self, barType, "percent", unitType);
+        end
         AbbreviatedStatusOption_SetPosition(statusText, "CENTER", self, barType, "status", unitType);
     end
-
 end
 
 hooksecurefunc("TextStatusBar_UpdateTextString", Abbreviated_UpdateTextString);
