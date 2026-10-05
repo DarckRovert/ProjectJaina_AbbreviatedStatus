@@ -1,4 +1,4 @@
-# Abbreviated Status Text — WoW Perú
+# 🇵🇪 WoW Perú — Abbreviated Status Text
 
 > **WoW Perú Ecosystem** · WotLK 3.3.5a compatible · `Interface: 30300`  
 > Fork de [Abbreviated Status Text](https://www.curseforge.com/wow/addons/abbreviated-status-text) por RomanSpector
@@ -17,7 +17,7 @@ Reduce el texto de las barras de **Salud** y **Maná** a formatos abreviados leg
 
 ## Instalación
 
-1. Copia `AbbreviatedStatus` a `Interface/AddOns/`.
+1. Copia la carpeta `AbbreviatedStatus` a `Interface/AddOns/`.
 2. Activa el addon desde el selector de personaje.
 3. No requiere configuración adicional — funciona de inmediato.
 
@@ -29,11 +29,20 @@ Accede a las opciones desde el menú de Interfaz de Blizzard → AddOns → Abbr
 
 - `AbbreviatedStatusDB` — Preferencias globales de formato.
 
-## Créditos
+## Créditos y Estatus Legal
 
 - **Autor original:** RomanSpector
-- **Adaptación WoW Perú:** DarckRovert (Elnazzareno)
+- **Adaptación y Hardening WoW Perú:** DarckRovert (Elnazzareno) & WoW Perú Team
 - **Versión:** 1.2.1
+- **Estatus Legal:** Consulta el [Aviso Legal y Créditos de Código de Terceros](NOTICE.md) para detalles sobre propiedad intelectual y modificaciones aplicadas.
+
+---
+
+## Documentación del Ecosistema
+
+* [Ficha Técnica Oficial del Ecosistema](ECOSYSTEM_REGISTRY.md)
+* [Historial de Cambios](CHANGELOG.md)
+* [Aviso Legal y Upstream](NOTICE.md)
 
 ---
 
