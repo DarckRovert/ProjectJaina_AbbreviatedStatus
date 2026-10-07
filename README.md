@@ -1,5 +1,7 @@
 # 🇵🇪 WoW Perú — Abbreviated Status Text
 
+[![GitHub](https://img.shields.io/badge/GitHub-DarckRovert%2FWoWPeru_AbbreviatedStatus-black?logo=github)](https://github.com/DarckRovert/WoWPeru_AbbreviatedStatus)
+
 > **WoW Perú Ecosystem** · WotLK 3.3.5a compatible · `Interface: 30300`  
 > Fork de [Abbreviated Status Text](https://www.curseforge.com/wow/addons/abbreviated-status-text) por RomanSpector
 
