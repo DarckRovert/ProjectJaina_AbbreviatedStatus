@@ -1,7 +1,7 @@
 # 🔌 Especificación Técnica y API — Wanos_AbbreviatedStatus
 
 [![GitHub](https://img.shields.io/badge/GitHub-DarckRovert%2FWanos_AbbreviatedStatus-black?logo=github)](https://github.com/DarckRovert/Wanos_AbbreviatedStatus)
-[![Ecosistema](https://img.shields.io/badge/Ecosistema-WoW%20Per%C3%BA%203.3.5a-gold.svg)](https://worldofwanos.com/)
+[![Ecosistema](https://img.shields.io/badge/Ecosistema-WoW%20Per%C3%BA%203.3.5a-gold.svg)](https://projectjaina.com/)
 
 ## 📌 Resumen Arquitectónico
 Abreviación inteligente de valores numéricos en barras de salud, maná y energía de marcos de unidad (jugador, objetivo, grupo) con blindaje contra divisiones por cero y soporte esES.

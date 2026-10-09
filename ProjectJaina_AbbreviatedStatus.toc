@@ -1,5 +1,5 @@
 ## Interface: 30300
-## Title: Abbreviated Status Text - [|cffff0000WoW -Perú|r]
+## Title: Abbreviated Status Text - [|cffff0000Project Jaina|r]
 ## Author: RomanSpector 
 ## Version: 1.2.1
 ## Notes-enEU: Shortens the text on Health and Mana bars.
