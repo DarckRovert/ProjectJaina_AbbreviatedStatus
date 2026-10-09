@@ -1,11 +1,11 @@
-# Registro de Cambios — WoWPeru_AbbreviatedStatus
+# Registro de Cambios — Wanos_AbbreviatedStatus
 
 Todos los cambios notables de este proyecto están documentados en este archivo siguiendo el estándar [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/).
 
 ---
 
 ## [v1.2.1-wp] — 2026-10-05
-### Correcciones de Estabilidad y Gobernanza (WoW Perú)
+### Correcciones de Estabilidad y Gobernanza (Project Jaina)
 - **Prevención de `NaN` (División por Cero):** Validación de `valueMax > 0` antes de computar porcentajes de vida y maná (`value / valueMax * 100`), previniendo caídas del intérprete Lua y textos corruptos en barras vacías.
 - **Clampeo de Índices Numéricos:** Asegurado que el índice de prefijo del slider no acceda a valores negativos en la tabla `NUMBER_ABBREVIATION_DATA`.
 - **Blindaje de Marcos de Estado:** Añadidos guardias nil en `GetStatusBarType` y `SetPosition` para evitar excepciones con barras de estado anónimas del cliente.

@@ -1,7 +1,7 @@
-# 🛡️ Política de Seguridad y Mitigación de Vulnerabilidades — WoWPeru_AbbreviatedStatus
+# 🛡️ Política de Seguridad y Mitigación de Vulnerabilidades — Wanos_AbbreviatedStatus
 
-**Proyecto:** Ecosistema WoW Perú  
-**Repositorio:** [https://github.com/DarckRovert/WoWPeru_AbbreviatedStatus](https://github.com/DarckRovert/WoWPeru_AbbreviatedStatus)
+**Proyecto:** Ecosistema Project Jaina  
+**Repositorio:** [https://github.com/DarckRovert/Wanos_AbbreviatedStatus](https://github.com/DarckRovert/Wanos_AbbreviatedStatus)
 
 ---
 
@@ -25,6 +25,6 @@ Este addon sigue estrictos principios de diseño seguro para el cliente de World
 
 ## 🚨 Reporte de Vulnerabilidades
 
-Si descubres una vulnerabilidad o un exploit que afecte la estabilidad del cliente o del servidor, por favor repórtalo directamente al Staff de WoW Perú a través de los canales oficiales:
-- **Discord:** Staff WoW Perú (Ticket Privado)
-- **GitHub Issues:** [https://github.com/DarckRovert/WoWPeru_AbbreviatedStatus/issues](https://github.com/DarckRovert/WoWPeru_AbbreviatedStatus/issues)
+Si descubres una vulnerabilidad o un exploit que afecte la estabilidad del cliente o del servidor, por favor repórtalo directamente al Staff de Project Jaina a través de los canales oficiales:
+- **Discord:** Staff Project Jaina (Ticket Privado)
+- **GitHub Issues:** [https://github.com/DarckRovert/Wanos_AbbreviatedStatus/issues](https://github.com/DarckRovert/Wanos_AbbreviatedStatus/issues)

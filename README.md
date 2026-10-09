@@ -1,8 +1,8 @@
-# 🇵🇪 WoW Perú — Abbreviated Status Text
+# 🇵🇪 Project Jaina — Abbreviated Status Text
 
-[![GitHub](https://img.shields.io/badge/GitHub-DarckRovert%2FWoWPeru_AbbreviatedStatus-black?logo=github)](https://github.com/DarckRovert/WoWPeru_AbbreviatedStatus)
+[![GitHub](https://img.shields.io/badge/GitHub-DarckRovert%2FWanos_AbbreviatedStatus-black?logo=github)](https://github.com/DarckRovert/Wanos_AbbreviatedStatus)
 
-> **WoW Perú Ecosystem** · WotLK 3.3.5a compatible · `Interface: 30300`  
+> **Project Jaina Ecosystem** · WotLK 3.3.5a compatible · `Interface: 30300`  
 > Fork de [Abbreviated Status Text](https://www.curseforge.com/wow/addons/abbreviated-status-text) por RomanSpector
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -38,9 +38,9 @@ El addon se integra nativamente en el panel de opciones del cliente:
 ## 📄 Licencia y Estatus Legal
 
 - **Autor original:** RomanSpector
-- **Adaptación y Hardening WoW Perú:** DarckRovert (Elnazzareno) & WoW Perú Team
+- **Adaptación y Hardening Project Jaina:** DarckRovert (Elnazzareno) & Project Jaina Team
 - **Versión:** 1.2.1
-- **Estatus Legal:** El código original de RomanSpector fue distribuido sin una licencia explícita de código abierto. Todos los derechos morales y de autor pertenecen a RomanSpector. Las correcciones y hardening aplicados son para preservación dentro del cliente WoW Perú. Consulta el [Aviso Legal y Créditos de Código de Terceros](NOTICE.md) para detalles completos.
+- **Estatus Legal:** El código original de RomanSpector fue distribuido sin una licencia explícita de código abierto. Todos los derechos morales y de autor pertenecen a RomanSpector. Las correcciones y hardening aplicados son para preservación dentro del cliente Project Jaina. Consulta el [Aviso Legal y Créditos de Código de Terceros](NOTICE.md) para detalles completos.
 
 ---
 
@@ -52,4 +52,4 @@ El addon se integra nativamente en el panel de opciones del cliente:
 
 ---
 
-*Parte del [ecosistema WoW Perú](https://github.com/DarckRovert)*
+*Parte del [ecosistema Project Jaina](https://github.com/DarckRovert)*

@@ -1,7 +1,7 @@
-# 🔌 Especificación Técnica y API — WoWPeru_AbbreviatedStatus
+# 🔌 Especificación Técnica y API — Wanos_AbbreviatedStatus
 
-[![GitHub](https://img.shields.io/badge/GitHub-DarckRovert%2FWoWPeru_AbbreviatedStatus-black?logo=github)](https://github.com/DarckRovert/WoWPeru_AbbreviatedStatus)
-[![Ecosistema](https://img.shields.io/badge/Ecosistema-WoW%20Per%C3%BA%203.3.5a-gold.svg)](https://wow-peru.lat/)
+[![GitHub](https://img.shields.io/badge/GitHub-DarckRovert%2FWanos_AbbreviatedStatus-black?logo=github)](https://github.com/DarckRovert/Wanos_AbbreviatedStatus)
+[![Ecosistema](https://img.shields.io/badge/Ecosistema-WoW%20Per%C3%BA%203.3.5a-gold.svg)](https://worldofwanos.com/)
 
 ## 📌 Resumen Arquitectónico
 Abreviación inteligente de valores numéricos en barras de salud, maná y energía de marcos de unidad (jugador, objetivo, grupo) con blindaje contra divisiones por cero y soporte esES.
@@ -35,4 +35,4 @@ Abreviación inteligente de valores numéricos en barras de salud, maná y energ
 ## 🛠️ Buenas Prácticas de Integración
 1. Toda invocación a funciones públicas debe verificar previamente la existencia del espacio de nombres en `_G`.
 2. Las tablas de configuración deben consultarse en modo lectura sin sobreescribir valores por omisión no validados.
-3. El intercambio de datos con otros addons debe efectuarse a través del bus oficial `WoWPeru_Companion` o hooks de eventos estándar.
+3. El intercambio de datos con otros addons debe efectuarse a través del bus oficial `Wanos_Companion` o hooks de eventos estándar.
