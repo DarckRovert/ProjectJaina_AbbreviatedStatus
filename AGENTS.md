@@ -1,7 +1,7 @@
-# 🤖 Directrices de Ingeniería y Restricciones para Agentes IA — Wanos_AbbreviatedStatus
+# 🤖 Directrices de Ingeniería y Restricciones para Agentes IA — ProjectJaina_AbbreviatedStatus
 
-**Addon:** `Wanos_AbbreviatedStatus`  
-**Repositorio Oficial:** [https://github.com/DarckRovert/Wanos_AbbreviatedStatus](https://github.com/DarckRovert/Wanos_AbbreviatedStatus)  
+**Addon:** `ProjectJaina_AbbreviatedStatus`  
+**Repositorio Oficial:** [https://github.com/DarckRovert/ProjectJaina_AbbreviatedStatus](https://github.com/DarckRovert/ProjectJaina_AbbreviatedStatus)  
 **Motor Gráfico y Runtime:** WoW 3.3.5a WotLK (Build 12340) / Lua 5.1 (Blizzard VM)
 
 ---

@@ -1,6 +1,6 @@
-# 🇵🇪 Project Jaina — Abbreviated Status Text
+# ❄️ Project Jaina — Abbreviated Status Text
 
-[![GitHub](https://img.shields.io/badge/GitHub-DarckRovert%2FWanos_AbbreviatedStatus-black?logo=github)](https://github.com/DarckRovert/Wanos_AbbreviatedStatus)
+[![GitHub](https://img.shields.io/badge/GitHub-DarckRovert%2FProjectJaina_AbbreviatedStatus-black?logo=github)](https://github.com/DarckRovert/ProjectJaina_AbbreviatedStatus)
 
 > **Project Jaina Ecosystem** · WotLK 3.3.5a compatible · `Interface: 30300`  
 > Fork de [Abbreviated Status Text](https://www.curseforge.com/wow/addons/abbreviated-status-text) por RomanSpector
@@ -38,7 +38,7 @@ El addon se integra nativamente en el panel de opciones del cliente:
 ## 📄 Licencia y Estatus Legal
 
 - **Autor original:** RomanSpector
-- **Adaptación y Hardening Project Jaina:** DarckRovert (Elnazzareno) & Project Jaina Team
+- **Adaptación y Hardening Project Jaina:** DarckRovert (Elnazzareno) & Antigravity (Mythos 5)
 - **Versión:** 1.2.1
 - **Estatus Legal:** El código original de RomanSpector fue distribuido sin una licencia explícita de código abierto. Todos los derechos morales y de autor pertenecen a RomanSpector. Las correcciones y hardening aplicados son para preservación dentro del cliente Project Jaina. Consulta el [Aviso Legal y Créditos de Código de Terceros](NOTICE.md) para detalles completos.
 

@@ -1,4 +1,4 @@
-# Registro de Cambios — Wanos_AbbreviatedStatus
+# Registro de Cambios — ProjectJaina_AbbreviatedStatus
 
 Todos los cambios notables de este proyecto están documentados en este archivo siguiendo el estándar [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/).
 

@@ -1,4 +1,4 @@
-# Aviso Legal y Créditos de Código de Terceros — Wanos_AbbreviatedStatus
+# Aviso Legal y Créditos de Código de Terceros — ProjectJaina_AbbreviatedStatus
 
 Este repositorio forma parte del ecosistema oficial de **Project Jaina - Project Jaina**.
 Contiene adaptaciones, correcciones de estabilidad y mantenimiento del addon **AbbreviatedStatus** para el cliente World of Warcraft 3.3.5a (Build 12340).
