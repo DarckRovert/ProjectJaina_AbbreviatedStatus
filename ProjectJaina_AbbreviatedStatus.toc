@@ -1,4 +1,5 @@
 ## Interface: 30300
+## Version: 1.2.1
 ## Title: Abbreviated Status Text - [|cffff0000Project Jaina|r]
 ## Author: RomanSpector 
 ## Version: 1.2.1
