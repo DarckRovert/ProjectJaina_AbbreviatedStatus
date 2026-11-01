@@ -1,6 +1,6 @@
 ## Interface: 30300
 ## Version: 1.2.1
-## Title: Abbreviated Status Text - [|cffff0000Project Jaina|r]
+## Title: |cFFD4AF37Project Jaina|r - |cFF00FFCCAbbreviatedStatus|r
 ## Author: RomanSpector 
 ## Notes-enEU: Shortens the text on Health and Mana bars.
 ## Notes-ruRU: Замена стандартного отображения текста здоровья и маны.
