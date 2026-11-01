@@ -4,12 +4,16 @@
 
 # ❄️ Project Jaina — Abbreviated Status Text
 
-[![GitHub](https://img.shields.io/badge/GitHub-DarckRovert%2FProjectJaina_AbbreviatedStatus-black?logo=github)](https://github.com/DarckRovert/ProjectJaina_AbbreviatedStatus)
+[![WoW Client](https://img.shields.io/badge/WoW%20Client-3.3.5a%20(Build%2012340)-blue.svg)](https://darckrovert.github.io/ProjectJaina_Web/)
+[![Engine](https://img.shields.io/badge/Engine-JainaCore%20C%2B%2B20-blue.svg)](https://github.com/DarckRovert/JainaCore_Server)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![GitHub](https://img.shields.io/badge/GitHub-DarckRovert%2FProjectJaina__AbbreviatedStatus-black?logo=github)](https://github.com/DarckRovert/ProjectJaina_AbbreviatedStatus)
+[![Ecosystem](https://img.shields.io/badge/Project%20JAIna-Sovereign-gold)](https://darckrovert.github.io/ProjectJaina_Web/)
+
 
 > **Project Jaina Ecosystem** · WotLK 3.3.5a compatible · `Interface: 30300`  
 > Fork de [Abbreviated Status Text](https://www.curseforge.com/wow/addons/abbreviated-status-text) por RomanSpector
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Reduce el texto de las barras de **Salud** y **Maná** a formatos abreviados legibles (ej: `12.4k`, `2.1M`) en lugar del número completo, maximizando la claridad en pantalla sin sacrificar información.
 
